@@ -18,3 +18,7 @@ Route::get('/', [ 'as' => 'home', function () {
 Route::get('about', [ 'as' => 'about', function () {
     return view('about');
 }]);
+
+Route::get('contact', [ 'as' => 'contact.form', function () {
+    return view('contact');
+}]);

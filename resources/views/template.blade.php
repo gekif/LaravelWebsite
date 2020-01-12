@@ -35,7 +35,7 @@
                     <a href="{{ route('about') }}">About</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="{{ route('contact.form') }}">Contact</a>
                 </li>
             </ul>
         </div>
