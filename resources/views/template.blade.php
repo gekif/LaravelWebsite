@@ -29,10 +29,10 @@
         <div class="collapse navbar-collapse" id="navbar-collapse-one">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#">Home</a>
+                    <a href="{{ route('home') }}">Home</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="{{ route('about') }}">About</a>
                 </li>
                 <li>
                     <a href="#">Contact</a>
