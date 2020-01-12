@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Mail;
+
 Route::get('/', [ 'as' => 'home', function () {
     return view('home');
 }]);
@@ -26,6 +28,11 @@ Route::get('contact', [ 'as' => 'contact.form', function () {
 }]);
 
 
+Route::get('contact/success', [ 'as' => 'contact.success', function () {
+    return view('success');
+}]);
+
+
 Route::post('contact', ['as' => 'contact.submit', function () {
 
     $validation = validator(
@@ -38,7 +45,9 @@ Route::post('contact', ['as' => 'contact.submit', function () {
     );
 
     if ($validation->passes()) {
-        dd('hooray it passed');
+        Mail::to('dzulfikar.maulana@gmail.com')->send(new App\Mail\Contact(request()));
+
+        return redirect()->route('contact.success');
     }
 
     return redirect()->route('contact.form')->withErrors($validation->errors())->withInput();
